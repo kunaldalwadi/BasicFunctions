@@ -1,0 +1,31 @@
+----- To reverse an int -----
+
+int given = 12345;
+int reversed = 0;
+
+ while(a > 0)
+{
+    reva = reva*10 + a%10;
+	a = a/10;
+}
+
+//for float/double
+//int/float/double can be converted toString then reversed and then parsed back to int/float/double as well.
+
+
+----- To reverse a String -----
+
+String s = "Kunal";
+
+//option-1
+new StringBuilder(s).reverse().toString();
+
+//option-2
+String reversedString = "";
+
+for(int i=s.length()-1; i>=0; i--)
+{
+    reversedString = reversedString + s.charAt(i);
+}
+
+------------------------------------------------------------
