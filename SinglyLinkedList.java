@@ -11,7 +11,7 @@ public class SinglyLinkedList {
             this.next = null;
         }
     }
-
+    
 
     public void printLinkedList() {
         Node n = head;
