@@ -24,6 +24,62 @@ public class SinglyLinkedList {
         System.out.println();
     }
 
+    //reverse() will help the reverse the order of the list
+    public void reverse(Node current) {
+        //Checks if list is empty
+        if(head == null) {
+            System.out.println("List is empty");
+        }
+        else {
+            //Checks if the next node is null, if yes then prints it.
+            if(current.next == null) {
+                System.out.print(current.data + " ");
+                return;
+            }
+            //Recursively calls the reverse function
+            reverse(current.next);
+            System.out.print(current.data + " ");
+        }
+    }
+
+    public void printLinkedListInReverse1() {
+
+        // I would traverse through the linked list and copy data into an Array and then reverse the array and print it.
+        // above is if we can use more memory.
+
+        Node curr = head;
+
+        if (head == null)//there is no node in the list
+        {
+            System.out.println("List is empty");
+            return; //Empty List
+        }
+        else {
+            //while loop is good to traverse through the LinkedList when you don't want number at a particular index.
+            while (curr.next != null) {
+                curr = curr.next;
+            }
+
+        }
+        System.out.println();
+    }
+
+    public void printLinkedListInReverse2() {
+
+        int totalNodes = countNodes();
+        System.out.println("Tol Nods = " + totalNodes);
+
+        if (totalNodes != 0)
+        {
+            for (int j=totalNodes-1; j>=0; j--)
+            {
+                int elementAt = getElementAt(j);
+                System.out.print(elementAt + " ");
+            }
+        }
+
+    }
+
     public int countNodes() {
         //even to traverse through the linkedlist you need a node.
         //so create a node which you can use to traverse through the linkedlist.
@@ -35,20 +91,21 @@ public class SinglyLinkedList {
         //while loop is good to traverse through the LinkedList.
         while (curr != null) {
             count++;
-            System.out.println(curr.data);
+//            System.out.println(curr.data);
             curr = curr.next;
         }
 
         return count;
     }
 
-    public int get(int index) {
+    public int getElementAt(int index) {
 
         int resultValue = 0;
         Node curr = head;
 
         if (head == null)//there is no node in the list
         {
+            System.out.println("List is empty");
             return 1;// list is empty;
         }
         else //if list is not empty then traverse the list until you reach the desired index.
@@ -59,7 +116,6 @@ public class SinglyLinkedList {
                 if (i==index)
                 {
                     resultValue = curr.data;
-                    break;
                 }
                 curr = curr.next;
             }
@@ -118,17 +174,20 @@ public class SinglyLinkedList {
         node5.next = node6;
         node6.next = node7;
 
-        list.printLinkedList();
-        int totalNodes = list.countNodes();
-        System.out.println("Total Nodes are = " + totalNodes);
+//        list.printLinkedList();
+//        int totalNodes = list.countNodes();
+//        System.out.println("Total Nodes are = " + totalNodes);
 
         list.addNode();
-        list.printLinkedList();
-        totalNodes = list.countNodes();
-        System.out.println("Total Nodes are = " + totalNodes);
+//        list.printLinkedList();
+//        totalNodes = list.countNodes();
+//        System.out.println("Total Nodes are = " + totalNodes);
 
-        int nodeAtIndex = list.get(4);
+        int nodeAtIndex = list.getElementAt(4);
         System.out.println("Node at Index is = " + nodeAtIndex);
+
+//        list.reverse(list.head);
+        list.printLinkedListInReverse2();
 
     }
 
