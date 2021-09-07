@@ -41,18 +41,28 @@ public class OddEvenLinkedList {
 
     private static Node oddEvenSort(Node head) {
 
+        //if head is null return;
         if (head == null)
             return null;
 
+        //if head is not null start the 1st node as odd
         Node odd = head;
+        //and 2nd node as even
         Node even = head.next;
         Node evenHead = even;
 
+        //this check the possibility of the list being single or only two noded.
         while (even != null && even.next != null)
         {
+            // we have to start with odd for the even nodes to work.
+            
+            //even's next will obviously be odd.
             odd.next = even.next;
+            //move the odd one step further.
             odd = odd.next;
+            //even's next will be odd.
             even.next = odd.next;
+            //move even node a step further.
             even = even.next;
         }
         odd.next = evenHead;
