@@ -14,35 +14,24 @@ public class ReverseLinkedList {
     static Node head = null;
 
     public static void main(String[] args) {
-
-
-
-        reverseList();
+      reverseList();
     }
 
+    private static Node reverseList(Node node) {
 
+        Node prev = null;
+        Node curr = node;
 
-    private static void reverseList() {
-
-        Node prev = head;
-        Node curr = prev.next;
-
-        if (curr == null) {
-            return;
-        }
-
-        if (curr.next == null)
+        while (curr != null)
         {
-            // single link to be reversed.
+            Node temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+
         }
 
-        while (curr.next.next != null)
-        {
-            curr = curr.next;
-        }
-        //at this point you should be at the tail of the list.
-
-
-
+        return prev;
     }
+
 }
