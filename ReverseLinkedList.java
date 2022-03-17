@@ -33,5 +33,17 @@ public class ReverseLinkedList {
 
         return prev;
     }
+    
+     public static void prettyPrint(ListNode node)
+    {
+        while (node != null)
+        {
+            System.out.print(node.val);
+            if (node.next != null) {
+                System.out.print("->");
+            }
+            node = node.next;
+        }
+    }
 
 }
