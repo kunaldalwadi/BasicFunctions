@@ -1,64 +1,71 @@
-import java.util.LinkedList;
+/*
+You are given the heads of two sorted linked lists list1 and list2.
+Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
+Return the head of the merged linked list.
+
+Input: list1 = [1,2,4], list2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+ */
 
 public class MergeSortedLinkedList {
 
-    static class Node {
-
-        int val;
-        Node next;
-        Node(int x) {
-            val = x;
-            next = null;
-        }
-
-    }
-
-    static Node head;
-
     public static void main(String[] args) {
 
-        Node result = mergeLinkedList();
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(4);
+
+        ListNode nodea = new ListNode(1);
+        ListNode nodeb = new ListNode(3);
+        ListNode nodec = new ListNode(4);
+
+        node1.next = node2;
+        node2.next = node3;
+
+        nodea.next = nodeb;
+        nodeb.next = nodec;
+
+        ListNode.prettyPrint(node1);
+
+        System.out.println();
+
+        ListNode.prettyPrint(nodea);
+
+        ListNode result = mergeTwoLists(node1, nodea);
+
+        System.out.println();
+        ListNode.prettyPrint(result);
     }
 
-    public static Node mergeLinkedList(Node n1, Node n2)
-    {
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
-        Node sentinel = new Node(-1);
-        Node prev = sentinel;
+        ListNode sentinel = new ListNode(-1);
+        ListNode curr = sentinel;
 
-        if (n1 == null)
+        while (list1 != null && list2 != null)
         {
-            return n2;
-        }
-
-        if (n2 == null)
-        {
-            return n1;
-        }
-
-        while (n1 != null && n2 != null)
-        {
-            if (n1.val <= n2.val)
+            if (list1.val <= list2.val)
             {
-                prev.next = n1;
-                n1=n1.next;
+                curr.next = list1;
+                list1 = list1.next;
             }
             else
             {
-                prev.next = n2;
-                n2 = n2.next;
+                curr.next = list2;
+                list2 = list2.next;
             }
 
-            prev = prev.next;
+            curr = curr.next;
         }
 
-        if (n1 == null)
+        if (list1 != null)
         {
-            prev.next = n2;
+            curr.next = list1;
         }
-        else
+
+        if (list2 != null)
         {
-            prev.next = n1;
+            curr.next = list2;
         }
 
         return sentinel.next;
