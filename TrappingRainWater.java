@@ -64,5 +64,62 @@ public class TrappingRainWater {
 
         return quantity;
     }
+    
+    
+    //Same two pointer approach with details and understanding.
+    public static int calculateRain(int[] height) {
+
+        int rainQuantity = 0;
+
+        //null/empty check
+        if (height.length == 0)
+        {
+            return rainQuantity;
+        }
+
+        //we take 4 placeholders.
+        int left = 0;
+        int right = height.length - 1;
+        int left_max = 0;
+        int right_max = 0;
+
+        //the only while loop (keep going until left < right)
+        while (left < right)
+        {
+
+            //two cases that can happen (height[left] < height[right]  or  height[left] >= height[right])
+            if (height[left] < height[right])
+            {
+                //two cases again (height[left] < left_max  or  height[left] >= left_max)
+                if (height[left] < left_max)
+                {
+                    rainQuantity = rainQuantity + (left_max - height[left]);
+                }
+                else // height[left] >= left_max //update left_max everytime when it is smaller than or equal to height[left]
+                {
+                    left_max = height[left];
+                }
+
+                left++;
+            }
+            else // height[left] >= height[right]
+            {
+                //two cases again (height[right] < right_max  or  height[right] >= right_max)
+                if (height[right] < right_max)
+                {
+                    rainQuantity = rainQuantity + (right_max - height[right]);
+                }
+                else // height[right] >= right_max //update right_max everytime when it is smaller than or equal to height[right]
+                {
+                    right_max = height[right];
+                }
+
+                right--;
+            }
+
+        }
+
+        return rainQuantity;
+    }
 
 }
