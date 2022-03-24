@@ -16,7 +16,7 @@ public class TwoSumLinkedList {
 
     public static void main(String[] args) {
 
-        addTwoNumbers();
+//        addTwoNumbers();
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {

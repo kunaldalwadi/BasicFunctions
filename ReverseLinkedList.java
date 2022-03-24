@@ -14,7 +14,7 @@ public class ReverseLinkedList {
     static Node head = null;
 
     public static void main(String[] args) {
-      reverseList();
+//      reverseList();
     }
 
     private static Node reverseList(Node node) {

@@ -1,5 +1,3 @@
-import com.sun.deploy.security.SelectableSecurityManager;
-
 import java.util.Arrays;
 
 public class validMountainArray {

@@ -18,11 +18,11 @@ public class AddIntoSortedCircularLinkedList {
             val = _val;
             next = _next;
         }
-    };
+    }
 
     public static void main(String[] args) {
 
-        addThisNode();
+//        addThisNode();
 
     }
 
