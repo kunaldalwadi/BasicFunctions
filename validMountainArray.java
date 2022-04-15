@@ -2,7 +2,10 @@ import java.util.Arrays;
 
 public class validMountainArray {
 
-    static int[] nums = new int[]{2,4,4};
+    static int[] nums = new int[]{1,2,4,5,3}; //valid
+//    static int[] nums = new int[]{1,2,4,2,1}; //valid
+//    static int[] nums = new int[]{1,2,4,4}; //invalid
+//    static int[] nums = new int[]{1,2,4,5,6}; //invalid
 
     public static void main(String[] args) {
 

@@ -6,10 +6,10 @@ public class FibonacciRecursion {
 
     public static void main(String[] args) {
 
-        int N = 50;
+        int N = 45;
 
-        System.out.println(fibonacci1(N));
         System.out.println(fibonacci2(N));
+        System.out.println(fibonacci1(N));
 
     }
 
